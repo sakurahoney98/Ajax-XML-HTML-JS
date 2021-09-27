@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function validaCampos(){
+			var nome = document.form1.nome.value
+			var email = document.form1.email.value
+			var telefone = document.form1.telefone.value
+			var ok = true
+
+			if(nome == ""){
+				alert ("Campo nome é de preenchimento obrigatório")
+				ok = false
+			}
+
+			if (email == ""){
+				alert ("Campo email é de preenchimento obrigatório")
+				ok = false
+			}
+
+			if (telefone == ""){
+				document.form1.telefone.value = "123456"
+				
+			}
+
+			return ok
+		}
+
+		function imprimir(){
+			if (validaCampos() == true){
+				window.print()
+			}else{
+				alert ("Preencha os campos obrigatórios!")
+			}
+		}
+
+	</script>
+	<h1 align="center">Formulário:</h1><br>
+	 <form name="form1" action="" method="get">
+	 	<table align="center">
+	 		<tr>
+	 			<th>Nome: </th>
+	 			<th><input type="text" name="nome"> </th>
+	 		</tr>
+	 			<tr>
+	 			<th>Email: </th>
+	 			<th><input type="text" name="email"> </th>
+	 		</tr>
+
+	 			<tr>
+	 			<th>Telefone: </th>
+	 			<th><input type="tel" name="telefone" maxlength="11"> </th>
+	 		</tr>
+
+	 	</table><br>
+
+	 	<div align="center">
+	 		<button  onclick="imprimir()">Imprimir</button>
+
+	 	</div>
+
+	 	
+	 	
+
+	 </form>
+
+	
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+
+body {
+	
+	margin: 0;
+	margin-top: 50px;
+    padding: 0;
+	background: #6A5ACD;
+	
+
+}
+
+#button {
+
+	margin-top: 100px;
+	width: 200px;
+	height: 100px;
+	font-family: 'Trebuchet MS';
+	font-size: 35px;
+}
+
+#lista_livros {
+	text-align: center;
+}
+
+#lista_livros h1{
+	font-size: 50px;
+	color: white;
+
+}
+
+.novaDiv{
+	text-align: left;
+}
+
+.Campos{
+font-weight: bold;
+width: 100px;
+
+}
+
+table{
+	font-size: 20px;
+	height: 20px;
+	margin: auto;
+	
+  	
+
+}
+
+hr{
+	border-color: white;
+}

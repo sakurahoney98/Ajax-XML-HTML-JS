@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 3</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		function função(){
+			var num = document.form3.numero.value
+
+		if (num > 0){
+			alert ("Número é positivo")
+		}else{
+			alert ("Número é negativo")
+		}
+
+		if (num%3 == 0){
+			ChamadaAjax()
+		}
+		}
+		function ChamadaAjax(){
+			var xhr = new XMLHttpRequest(),
+    	method = "GET",
+   		 url = "Resposta.html"
+
+		
+		xhr.onreadystatechange = function () {
+        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+           document.getElementById("resposta").innerHtml = xhr.responseText
+        }
+    };
+ 		xhr.open(method, url, true);
+		xhr.send();
+		}
+
+		
+		
+
+	</script>
+
+	<form name ="form3" action="" method="get">
+		<table align="center">
+			<tr>
+				<th><h1>Digite o número:</h1></th>
+
+			</tr>
+
+			<tr>
+				<th><input type="number" name="numero" onblur="função()"></th>
+
+			</tr>
+
+		</table>
+
+		
+
+	</form>
+	<div id="resposta">
+		
+
+	</div>
+
+</body>
+</html>

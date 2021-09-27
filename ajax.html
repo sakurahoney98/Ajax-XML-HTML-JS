@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+
+		<button onclick="teste()">Clique aqui</button>
+
+
+	<script type="text/javascript">
+
+		function teste(){
+				console.log("oi")
+				alert("Oi")
+		}
+		function ajax(){
+
+			xml = new XMLHttpRequest();
+			xml.onreadystatechange = function(){
+				if (xml.readyState == 4 && xml.status == 200){
+					document.getElementById("hello").innerHtml = xml.responseText;
+				}
+			}
+			xml.open("GET", "retornor.html", true)
+			xml.send()
+		}
+
+
+	</script>
+
+</body>
+</html>

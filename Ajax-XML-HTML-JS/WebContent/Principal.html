@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Atividade HTML + Javascript + AJAX</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div id="lista_livros">
+<button id="button" onclick="chamada()">Clica aqui</button>
+
+</div>
+
+
+<script type="text/javascript">
+
+function chamada(){
+
+	
+		
+	
+var ajax = new XMLHttpRequest();
+
+ajax.open("GET","livros.xml",true);
+ajax.send();
+
+ajax.onreadystatechange = function(){
+
+	if (ajax.readyState == 4){
+		
+		var xml = ajax.responseXML;
+		var divAtual = document.getElementById("lista_livros")
+		const str = '<h1>LIVROS EXISTENTES:<\h1>'
+		divAtual.innerHTML = str
+		
+for(var i = 0; i < 3; i++){
+	var tabela = document.createElement('table')
+	
+	var campos =  ['Título: ', 'Autor: ', 'Ano: ', 'Editora: ']
+	var dados = []
+	var guardar = [campos, dados]
+
+	
+	dados.push(xml.getElementsByTagName('titulo')[i].innerHTML)
+
+	dados.push(xml.getElementsByTagName('autor')[i].innerHTML)
+
+	dados.push(xml.getElementsByTagName('anoPublicacao')[i].innerHTML)
+	
+	dados.push(xml.getElementsByTagName('editora')[i].innerHTML)
+	
+	
+	
+	
+	for (var j = 0; j < 4; j++){
+		
+		
+		var linha = document.createElement('tr')
+		for(var k = 0; k < 2;k++){
+			var colum1 = document.createElement('td')
+			colum1.appendChild(document.createTextNode(guardar[k][j]))
+			if(k == 0){
+				colum1.className = "Campos"	
+			}else{
+				colum1.className = "Conteudo"
+			}
+			linha.appendChild(colum1)
+			
+		}
+		
+		
+		
+		tabela.appendChild(linha)
+		
+	}
+	
+	
+	
+	var novaDiv = document.createElement('div')
+	
+	
+	novaDiv.className = "novaDiv"
+	
+	novaDiv.appendChild(tabela)
+	
+	var divAux = document.createElement('div')
+	divAux.innerHTML = '<hr>'
+	
+	novaDiv.appendChild(divAux)
+	
+	divAtual.appendChild(novaDiv)
+ 
+		 
+	}
+	}
+}
+	
+}
+</script>
+
+</body>
+</html>
